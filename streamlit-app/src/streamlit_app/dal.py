@@ -150,6 +150,15 @@ class OrmDAL:
         with session_scope(self.SessionFactory) as s:
             return s.get(model, pk)
 
+    def select_all(self, model: Type[T], limit: Optional[int] = None) -> list[T]:
+        from sqlalchemy import select
+
+        stmt = select(model)
+        if limit:
+            stmt = stmt.limit(limit)
+        with session_scope(self.SessionFactory) as s:
+            return list(s.scalars(stmt))
+
     def select_where(
         self,
         model: Type[T],

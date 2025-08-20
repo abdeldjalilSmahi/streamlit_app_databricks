@@ -74,3 +74,5 @@ def main():
     # --- DELETE (ORM/Core)
     n_del = dal.delete_where(Customer, Customer.customer_id == "C001")
     print("Deleted rows:", n_del)
+    all_customers = dal.select_all(Customer)
+    print("All customers:", [c.customer_id for c in all_customers])
