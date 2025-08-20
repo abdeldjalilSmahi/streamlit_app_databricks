@@ -1,0 +1,31 @@
+[project]
+name = "streamlit-app"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "abdeldjalilSmahi", email = "abdeldjalil.smahi@ens.uvsq.fr" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "databricks-sql-connector[sqlalchemy]>=4.0.5",
+    "pandas>=2.2.3",
+    "python-dateutil>=2.9.0.post0",
+    "python-dotenv>=1.1.1",
+    "sqlalchemy>=2.0.43",
+    "databricks-sqlalchemy>=2.0.0"
+]
+
+[project.scripts]
+streamlit_app = "streamlit_app.main:main"
+
+[build-system]
+requires = ["uv_build>=0.8.8,<0.9.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1",
+    "ruff>=0.12.9",
+]
